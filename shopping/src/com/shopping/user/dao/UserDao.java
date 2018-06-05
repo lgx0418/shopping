@@ -7,7 +7,6 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import com.shopping.user.vo.User;
 
 
-
 public class UserDao extends HibernateDaoSupport{
 	// 按名次查询是否有该用户:
 		public User findByUsername(String username) {
