@@ -12,6 +12,8 @@
 		<property name="password"/>
 		<property name="name"/>
 		<property name="email"/>
+		<property name="sex"/>
+		
 		<property name="phone"/>
 		<property name="addr"/>
 		<property name="state"/>

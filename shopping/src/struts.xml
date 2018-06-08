@@ -5,13 +5,27 @@
 <struts>
 	<constant name="struts.devMode" value="false"></constant>
 	<package name="shopping" extends="struts-default" namespace="/">
+		
+		
+		<global-results>
+			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+		</global-results>
 		<!--配置首页访问的action	-->
 		<action name="index" class="indexAction">
 			<result name="index">/WEB-INF/jsp/index.jsp</result>
 		</action>
-		<!--配置注册界面访问的action-->
-		<action name="user_*" class="registerAction" method="{1}">
+		<!--配置注册登录界面访问的action-->
+		<action name="user_*" class="userAction" method="{1}">
 			<result name="register">/WEB-INF/jsp/register.jsp</result>
+			<result name="loginPage">/WEB-INF/jsp/login.jsp</result>
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+			<result name="loginSuc" type="redirectAction">index</result>
+			<result name="goBack" type="redirectAction">index</result>
+			<result name="checkcodeMsg">/WEB-INF/jsp/register.jsp</result>
 		</action>
+		<!-- 验证码的Action -->  
+        <action name="checkImg" class="checkImgAction">
+        	
+        </action>  
 	</package>
 </struts>

@@ -1,18 +1,26 @@
 package com.shopping.user.vo;
 
-import java.util.HashSet;
-import java.util.Set;
 
 public class User {
 	private Integer uid;
 	private String username;
 	private String password;
+	
 	private String name;
 	private String email;
+	private String sex;
+	
 	private String phone;
 	private String addr;
 	private Integer state;
 	private String code;
+	
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 	public Integer getUid() {
 		return uid;
 	}

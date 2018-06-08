@@ -59,5 +59,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-core-2.3.24.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-spring-plugin-2.3.24.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xwork-core-2.3.24.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

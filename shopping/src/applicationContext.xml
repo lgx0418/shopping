@@ -45,7 +45,11 @@
 		</props>
 	</property>
 	<!--配置hibernate映射文件	-->
-	
+	<property name="mappingResources">
+		<list>
+			<value>com/shopping/user/vo/User.hbm.xml</value>
+		</list>
+	</property>
 </bean>
 
 <!-- 事务管理: -->
@@ -63,7 +67,20 @@
 	
 </bean>
 <!--注册界面跳转的Action-->
-<bean id="registerAction" class="com.shopping.user.action.registerAction" scope="prototype">
-	
-</bean>
+<!-- 用户模块的Action -->
+	<bean id="userAction" class="com.shopping.user.action.registerAction" scope="prototype">
+		<!-- 注入Service -->
+		<property name="userService" ref="userService"/>
+	</bean>
+	<!--验证码的ACTION -->
+	<bean id="checkImgAction" class="com.shopping.user.action.CheckImgAction" scope="prototype">
+	</bean>
+<!-- Service的配置  =============================================-->
+	<bean id="userService" class="com.shopping.user.service.UserService">
+		<property name="userDao" ref="userDao"/>
+	</bean>
+<!-- Dao的配置  =============================================-->
+	<bean id="userDao" class="com.shopping.user.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
 </beans>

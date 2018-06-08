@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>顶部页面</title>
+
 </head>
 <body>
 	<div class="container header">
@@ -26,24 +28,32 @@
 							<a href="./购物车.htm">购物车</a>
 							|
 				</li>
+				<s:if test="#session.existUser == null">
 				<li id="headerLogin" class="headerLogin" style="display: list-item;">
-					<a href="./会员登录.htm">登录</a>|
+					<a href="${ pageContext.request.contextPath }/user_loginPage.action">登录</a>|
 				</li>
 				<li id="headerRegister" class="headerRegister" style="display: list-item;">
 					<a href="${pageContext.request.contextPath}/user_register.action">注册</a>|
 				</li>
-				<li id="headerUsername" class="headerUsername"></li>
-				<li id="headerLogout" class="headerLogout">
-					<a href="./index.htm" >[退出]</a>|
+				</s:if>
+				<s:else>
+				<li id="headerLogin" class="headerLogin" style="display: list-item;">
+					<s:property value="#session.existUser.name"/>
+					|</li>
+				<li id="headerLogin" class="headerLogin" style="display: list-item;">
+					<a href="#">会员中心</a>
+				|</li>
+				<li id="headerLogout" class="headerLogout" style="display: list-item;">
+					<a href="javascript:window.opener=null;%20window.close();" onclick="logout()">退出</a>|
 				</li>
+				</s:else>
+				<li id="headerUsername" class="headerUsername"></li>
+				
 						<li>
 							<a>商家入口</a>
 							|
 						</li>
-						<li>
-							<a>会员中心</a>
-							|
-						</li>
+						
 						
 						
 						
@@ -56,6 +66,13 @@
 	</div>
 
 </div>	
-	
+	<script type="text/javascript">
+		function logout(){
+			if(confirm("确定要退出吗？")){
+				top.location="${ pageContext.request.contextPath }/user_goBack.action";
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>
