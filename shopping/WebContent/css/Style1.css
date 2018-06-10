@@ -6,35 +6,35 @@ body {
 	margin-bottom: 0px;
 }
 td,select  {
-	font-size: 12px;
+	font-size: 14px;
 }
 A.cl:link {
-    font-size:12px;
+    font-size:14px;
 	color: #000000;
     text-decoration:none;
 }
 A.cl:visited {
-    font-size:12px;
+    font-size:14px;
 	color: #000000;
     text-decoration:none;
 }
 A.cl:hover {
-    font-size:12px;
+    font-size:14px;
 	color: #cc0000;
 	text-decoration:underline;
 }
 A.cl_01:link {
-    font-size:12px;
+    font-size:14px;
 	color: #000066;
     text-decoration:none;
 }
 A.cl_01:visited {
-    font-size:12px;
+    font-size:14px;
 	color: #000066;
     text-decoration:none;
 }
 A.cl_01:hover {
-    font-size:12px;
+    font-size:14px;
 	color: #0066CC;
 	text-decoration:underline;
 }
@@ -112,17 +112,17 @@ A.cl_01:hover {
 	color: #000066;
 }
 A.cl_02:link {
-    font-size:12px;
+    font-size:14px;
 	color: #CC0000;
     text-decoration:underline;
 }
 A.cl_02:visited {
-    font-size:12px;
+    font-size:14px;
 	color: #CC0000;
     text-decoration:underline;
 }
 A.cl_02:hover {
-    font-size:12px;
+    font-size:14px;
 	color: #CC0000;
 	text-decoration:none;
 }
@@ -153,32 +153,32 @@ A.cl_02:hover {
 }
 
 A:link {
-    font-size:12px;
+    font-size:14px;
 	color: #000000;
     text-decoration:none;
 }
 A:visited {
-    font-size:12px;
+    font-size:14px;
 	color: #000000;
     text-decoration:none;
 }
 A.eq:hover {
-    font-size:12px;
+    font-size:14px;
 	color: #0066FF;
 	text-decoration:underline;
 }
 A.eq:link {
-    font-size:12px;
+    font-size:14px;
 	color: #000000;
     text-decoration:underline;
 }
 A.eq:visited {
-    font-size:12px;
+    font-size:14px;
 	color: #000000;
     text-decoration:underline;
 }
 A.eq:hover {
-    font-size:12px;
+    font-size:14px;
 	color: #0066FF;
 	text-decoration:underline;
 }

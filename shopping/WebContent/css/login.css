@@ -37,7 +37,7 @@ div.login .title strong {
 
 div.login table {
 	width: 100%;
-	margin-top: 35px;
+	margin-top: 10px;
 	color: #825996;
 }
 
@@ -60,7 +60,7 @@ div.login .captchaImage {
 	cursor: pointer;
 }
 
-div.login .submit {
+div.login .submit{
 	width: 100px;
 	height: 35px;
 	line-height: 35px;
@@ -84,7 +84,6 @@ div.login .reset {
 	border: none;
 	background: url(../images/login.gif) 0px 0px no-repeat;
 }
-
 /*div.login .register {
 	background-color: #FFF8DB;
 }*/

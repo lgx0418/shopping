@@ -24,10 +24,7 @@
 	<div class="span10 last">
 		<div class="topNav clearfix">
 			<ul>
-				<li class="cart">
-							<a href="./购物车.htm">购物车</a>
-							|
-				</li>
+				
 				<s:if test="#session.existUser == null">
 				<li id="headerLogin" class="headerLogin" style="display: list-item;">
 					<a href="${ pageContext.request.contextPath }/user_loginPage.action">登录</a>|
@@ -39,7 +36,11 @@
 				<s:else>
 				<li id="headerLogin" class="headerLogin" style="display: list-item;">
 					<s:property value="#session.existUser.name"/>
-					|</li>
+				|</li>
+				<li class="cart">
+					<a href="./购物车.htm">购物车</a>
+					|
+				</li>
 				<li id="headerLogin" class="headerLogin" style="display: list-item;">
 					<a href="#">会员中心</a>
 				|</li>
@@ -48,15 +49,10 @@
 				</li>
 				</s:else>
 				<li id="headerUsername" class="headerUsername"></li>
-				
 						<li>
-							<a>商家入口</a>
+							<a href="seller/seller_login.html"><img src="${pageContext.request.contextPath}/images/shop.jpg"/>&nbsp;商家入口</a>
 							|
 						</li>
-						
-						
-						
-						
 			</ul>
 		</div>
 		

@@ -133,7 +133,7 @@ function checkForm(){
 								</tr>
 								<tr>
 									<th><span class="requiredField">*</span>确认密码:</th>
-									<td><input type="password" id="repassword" name="rePassword" class="text"
+									<td><input type="password" id="repassword" class="text"
 										maxlength="20" autocomplete="off">
 										<span id="span3"></span>
 									</td>

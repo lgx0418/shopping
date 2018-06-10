@@ -88,7 +88,7 @@ div.hotProductCategory {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	border: solid 1px #e4e4e4;
+	/*border: solid 1px #e4e4e4;*/
 }
 
 div.hotProductCategory dl {
@@ -577,8 +577,8 @@ div.productList .table {
 	margin-bottom: 10px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	border-radius: 3px;
-	border: solid 1px #dddddd;
+	/*border-radius: 3px;
+	border: solid 1px #dddddd;*/
 }
 
 div.productList .table li {
@@ -819,7 +819,7 @@ div.productContent .productImage .zoomWindow {
 div.productContent .productImage .zoomWrapper {
 	position: relative;
 	z-index: 110;
-	border: 1px solid #e4e4e4;
+/*	border: 1px solid #e4e4e4;*/
 }
 
 div.productContent .productImage .zoomWrapperTitle {
