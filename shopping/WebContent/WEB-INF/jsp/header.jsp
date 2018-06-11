@@ -6,21 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>顶部页面</title>
-
+<link href="${pageContext.request.contextPath}/css/common.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<div class="container header">
-	<div class="span5">
-		<div class="logo">
-			<a href="http://localhost:8080/mango/">
-				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="网上商城">
-			</a>
-		</div>
-	</div>
-	<div class="span9">
-<div class="headerAd">
-					
-</div>	</div>
+
 	<div class="span10 last">
 		<div class="topNav clearfix">
 			<ul>
@@ -61,7 +51,6 @@
 		
 	</div>
 
-</div>	
 	<script type="text/javascript">
 		function logout(){
 			if(confirm("确定要退出吗？")){

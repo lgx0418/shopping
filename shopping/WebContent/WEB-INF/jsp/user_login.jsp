@@ -23,16 +23,37 @@ function checkForm(){
 	}
 }
 </script>
-
+<%-- <style type="text/css">
+.span5{
+	width: 190px;
+	position: absolute;
+	left: 176px;
+	top: 10px;
+}
+</style> --%>
 </head>
 <body>
+<div class="container header">
+	<div class="span5">
+		<div class="logo">
+			<a href="./index.htm">
+				<img src="./image/r___________renleipic_01/logo.gif" alt="网上商城"/>
+			</a>
+		</div>
+	</div>
+	<div class="span9">
+<div class="headerAd">
+	
+</div>	</div>
 	<%@ include file="header.jsp" %>
+</div>
 <div class="container login" style="height:350px;background-image: url(image/r___________renleipic_01/login11.jpg); 
 		background-repeat:no-repeat"> <p ></p>
 		<div class="span12">
 <div class="ad">
 					<img src="${pageContext.request.contextPath}/image/11111.jpg" width="500" height="330" alt="欢迎进入会员登录中心"/>
 </div>		</div>
+
 		<div class="span12 last">
 			<div class="wrap">
 				<div class="main">

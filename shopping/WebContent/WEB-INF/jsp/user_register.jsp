@@ -100,7 +100,20 @@ function checkForm(){
 
 </head>
 <body>
+<div class="container header">
+	<div class="span5">
+		<div class="logo">
+			<a href="./index.htm">
+				<img src="./image/r___________renleipic_01/logo.gif" alt="网上商城"/>
+			</a>
+		</div>
+	</div>
+	<div class="span9">
+<div class="headerAd">
+	
+</div>	</div>
 	<%@ include file="header.jsp"%>
+</div>
 	<%request.setCharacterEncoding("UTF-8");%>
 	<div class="container register">
 		<!-- <p style="background-image: url(image/r___________renleipic_01/2.png); 
