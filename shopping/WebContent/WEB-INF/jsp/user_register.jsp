@@ -103,7 +103,7 @@ function checkForm(){
 <div class="container header">
 	<div class="span5">
 		<div class="logo">
-			<a href="./index.htm">
+			<a href="${ pageContext.request.contextPath }/index.action">
 				<img src="./image/r___________renleipic_01/logo.gif" alt="网上商城"/>
 			</a>
 		</div>

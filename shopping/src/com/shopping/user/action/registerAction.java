@@ -118,4 +118,10 @@ public class registerAction extends ActionSupport implements ModelDriven<User>{
 		ServletActionContext.getRequest().getSession().invalidate();
 		return "goBack";
 	}
+	
+	/*//修改用户信息
+	public String info(){
+		User existUser=userService.editInfo(user);
+		return "userInfo";
+	}*/
 }

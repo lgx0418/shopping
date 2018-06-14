@@ -20,7 +20,7 @@
 .itemCol{
 	padding-left: 15px;
 }
-.catList a:link, .catList a:visited {
+.catList a:link,.catList a:visited{
 	color: #000;
 	text-decoration: none;
 }
@@ -28,6 +28,7 @@
 	color:#F00;
 	text-decoration: none;
 }
+
 body,
 ul,
 li,

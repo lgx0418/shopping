@@ -32,7 +32,7 @@
 					|
 				</li>
 				<li id="headerLogin" class="headerLogin" style="display: list-item;">
-					<a href="#">会员中心</a>
+					<a href="${pageContext.request.contextPath}/user_info.action?uid=<s:property value="#session.existUser.uid"/>">会员中心</a>
 				|</li>
 				<li id="headerLogout" class="headerLogout" style="display: list-item;">
 					<a href="javascript:window.opener=null;%20window.close();" onclick="logout()">退出</a>|

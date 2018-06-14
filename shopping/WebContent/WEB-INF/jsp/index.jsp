@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags"  prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -92,29 +93,29 @@ body{/*font:12px/180% Arial, Helvetica, sans-serif, "新宋体";background:#E7DB
 	<ul>
 	     <li>
 			<a id="top_btn">
-				<img src="images/foot03/ll06.png" width="47" height="49" class="hides"/>
-				<img src="images/foot03/l06.png" width="47" height="49" class="shows" />
+				<img src="${pageContext.request.contextPath}/images/foot03/ll06.png" width="47" height="49" class="hides"/>
+				<img src="${pageContext.request.contextPath}/images/foot03/l06.png" width="47" height="49" class="shows" />
 			</a>
 		</li>
 
 		<li>
 			<a href="">
-				<img src="images/foot03/ll03.png"  width="47" height="49" class="hides"/>
-				<img src="images/foot03/l03.png" width="47" height="49" class="shows" />
+				<img src="${pageContext.request.contextPath}/images/foot03/ll03.png"  width="47" height="49" class="hides"/>
+				<img src="${pageContext.request.contextPath}/images/foot03/l03.png" width="47" height="49" class="shows" />
 			</a>
 		</li>
 
 		<li>
 			<a href="">
-					<img src="images/foot03/ll02.png" width="166" height="49" class="hides"/>
-				<img src="images/foot03/l04.png" width="47" height="49" class="shows" />
+					<img src="${pageContext.request.contextPath}/images/foot03/ll02.png" width="166" height="49" class="hides"/>
+				<img src="${pageContext.request.contextPath}/images/foot03/l04.png" width="47" height="49" class="shows" />
 			</a>
 		</li>
 
 		<li>
 			<a class="youhui">
-				<img src="images/foot03/l02.png" width="47" height="49" class="shows" />
-				<img src="images/foot03/zfew.jpg" width="196" height="205" class="hides" usemap="#taklhtml"/>
+				<img src="${pageContext.request.contextPath}/images/foot03/l02.png" width="47" height="49" class="shows" />
+				<img src="${pageContext.request.contextPath}/images/foot03/zfew.jpg" width="196" height="205" class="hides" usemap="#taklhtml"/>
 			</a>
 		</li>
 	
@@ -150,8 +151,8 @@ $(document).ready(function(){
 <div class="container header">
 	<div class="span5">
 		<div class="logo">
-			<a href="./index.htm">
-				<img src="./image/r___________renleipic_01/logo.gif" alt="网上商城"/>
+			<a href="${ pageContext.request.contextPath }/index.action">
+				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="网上商城"/>
 			</a>
 		</div>
 	</div>
@@ -166,31 +167,12 @@ $(document).ready(function(){
 						<a href="${ pageContext.request.contextPath }/index.action">首页</a>
 						|
 					</li>
-					<li>
-						<a href="./clothes.htm">女装男装</a>
-						|
-					</li>
-					<li>
-						<a href="./shoes.htm">鞋靴箱包</a>
-						|
-					</li>
-					<li>
-					<a href="./sport.htm">运动户外</a>
-						|
-					</li>
-					<li>
-							<a href="./jewellery.htm">珠宝配饰</a>|
-					</li>
-				
-					<li>
-							<a href="./digital.htm">手机数码</a>
-						|
-					</li>
-					<li>
-						<a href="./electrical.htm">家电办公</a>
-						|
-					</li>
-					
+					<!--取出一级分类  -->
+					<s:iterator var="c" value="#session.cList">
+						<li>
+							<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="#c.cid"/>&page=1"><s:property value="#c.cname"/></a>|
+						</li>
+					</s:iterator>
 		</ul>
 	</div>
 
@@ -245,12 +227,8 @@ $(document).ready(function(){
 /*.b2 .b2_b2_u{position: absolute;top:23px;overflow:hidden;display:none;z-index:10;background:#fff;border: 1px solid #ccc;border: 1px solid rgba(0,0,0,0.15);box-shadow: 0 6px 12px rgba(0,0,0,0.175); -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);padding:5px 10px;border-radius: 3px;}*/
 </style>
 <div class="b2" id="b2">
-<input class="b2_s" type="text" id="h_search" placeholder="请输入要搜索的商品...">
-<!--<button id="b2_btn1" class="btn btn_1">
-	搜索
-	</button>-->
-<input type="button" id="b2_btn1" class="btn btn_1" value="搜索" onclick="location.href='research.htm'"> 
-<!--<button id="b2_btn2" class="btn btn_1 btn_2"><span class="icon-cog2"></span></button>-->
+	<input class="b2_s" type="text" id="h_search" placeholder="请输入要搜索的商品...">
+	<input type="button" id="b2_btn1" class="btn btn_1" value="搜索" onclick="location.href='research.htm'"> 
 </div>
 </div>
 
@@ -260,7 +238,7 @@ $(document).ready(function(){
 		<div class="span24">
 			<div id="hotProduct" class="hotProduct clearfix">
 					<div class="title" style="width: 950px;">
-						<strong>热门商品</strong>
+						<strong>特卖会场</strong>
 						<!-- <a  target="_blank"></a> -->
 					</div>
 					<!--导航栏-->
@@ -268,27 +246,16 @@ $(document).ready(function(){
 						
 						<ul class="clearfix">
 							<h2 style="font-size: 18px;text-align: center;border-bottom: 1px solid #DF9A07;color: #DF9A07;">主题市场</h2>
-							
-							<li class="J_MenuItem">
-								<h3 class="itemtit"><span>女装男装 </span></h3>
-								<p class="itemCol"><a href="clothes_fashion.htm">潮流女装</a>&nbsp;&nbsp;<a href="#">精品男装 </a>&nbsp;&nbsp; <a href="#">换季新品 </a></p>
-							</li>
-							<li class="J_MenuItem">
-								<h3 class="itemtit"><span>鞋靴箱包</span></h3>
-								<p class="itemCol"> <a href="#">男鞋 </a>&nbsp;&nbsp; <a href="#">女鞋 </a>&nbsp;&nbsp; <a href="#">服饰配件 </a></p>
-							</li>
-							<li class="J_MenuItem">
-								<h3 class="itemtit"><span>运动户外</span></h3>
-								<p class="itemCol"><a href="#">运动鞋</a>&nbsp;&nbsp; <a href="#">运动服</a>&nbsp;&nbsp; <a href="#">户外装备 </a></p>
-							</li>
-							<li class="J_MenuItem">
-								<h3 class="itemtit"><span>珠宝配饰 </span></h3>
-								<p class="itemCol"><a href="#">珠宝首饰 </a>&nbsp;&nbsp; <a href="#">时尚饰品 </a>&nbsp;&nbsp; <a href="#">品质手表 </a></p>
-							</li>
-							<li class="J_MenuItem">
-								<h3 class="itemtit"><span>手机数码 </span></h3>
-								<p class="itemCol"><a href="#">手机 </a>&nbsp;&nbsp; <a href="#">电脑 </a>&nbsp;&nbsp; <a href="#">相机 </a></p>
-							</li>
+							<s:iterator value="#session.cList" var="c">
+								<li class="J_MenuItem">
+									<h3 class="itemtit"><span><s:property value="#c.cname"/> </span></h3>
+									<p class="itemCol">
+										<s:iterator value="#c.categorySeconds" var="cs">
+											<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="#cs.csid"/>&page=1"><s:property value="#cs.csname"/></a>&nbsp;&nbsp;
+										</s:iterator>
+									</p>
+								</li>
+							</s:iterator>
 						</ul>
 					</div>
 
@@ -311,7 +278,7 @@ $(document).ready(function(){
 		<div class="span24">
 			<div id="newProduct" class="newProduct clearfix">
 					<div class="title">
-						<strong>最新商品</strong>
+						<strong>热门商品</strong>
 						<a  target="_blank"></a>
 					</div>
 					<ul class="tab">
@@ -319,82 +286,11 @@ $(document).ready(function(){
 					</ul>
 					
 						 <ul class="tabContent" style="display: block;">
-									<li>
-										<a  href="clothes.htm" target="_blank"><img src="image/women/women (10).png" data-original="http://storage.shopxx.net/demo-image/3.0/201301/4a51167a-89d5-4710-aca2-7c76edc355b8-thumbnail.jpg" style="display: block;"></a>									</li>
-									<li>
-										<a  target="_blank"><img src="image/women/women (11).png" style="display: block;"></a>									</li>
-									
-									<li>
-										<a target="_blank"><img src="image/women/women (13).jpg" style="display: block;"></a>									</li>
-									<li>
-										<a target="_blank"><img src="image/women/women (1).jpg" style="display: block;"></a>									</li>
-									<li>
-										<a target="_blank"><img src="image/women/women (16).jpg" style="display: block;"></a>									</li>
-									<li>
-										<a target="_blank"><img src="image/men/men (8).png" style="display: block;"></a>									</li>
-									<li>
-										<a  target="_blank"><img src="image/men/men (20).png" style="display: block;"></a>
-									<li>
-										<a  target="_blank"><img src="image/men/men (7).png"" data-original="http://storage.shopxx.net/demo-image/3.0/201301/b499fb5e-999f-431b-a375-172ee09e4a3e-thumbnail.jpg" style="display: block;" /></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="image/shoe/shoe (1).jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/b499fb5e-999f-431b-a375-172ee09e4a3e-thumbnail.jpg" style="display: block;" /></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="image/shoe/shoe (1).png" data-original="http://storage.shopxx.net/demo-image/3.0/201301/b499fb5e-999f-431b-a375-172ee09e4a3e-thumbnail.jpg" style="display: block;" /></a>
-									</li>
-						</ul>
-				<ul class="tabContent" style="display: none;">
-									<li>
-										<a  href="clothes.htm" target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/b04a22f5-267d-4e33-ac58-dda941eeaf84-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/b04a22f5-267d-4e33-ac58-dda941eeaf84-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/ca3043f5-dbb0-4a03-9bb6-8274f78b5d7e-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/ca3043f5-dbb0-4a03-9bb6-8274f78b5d7e-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/a2ac0816-37e4-477a-b179-e64f71252cf5-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/a2ac0816-37e4-477a-b179-e64f71252cf5-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/fbb80ec8-a1d3-49de-b83b-79eae4b1ff69-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/fbb80ec8-a1d3-49de-b83b-79eae4b1ff69-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/bb99deac-0b33-48f1-a3ad-e8310516be07-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/bb99deac-0b33-48f1-a3ad-e8310516be07-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/7b3c0647-1016-4d13-8b84-4d63818e1179-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/7b3c0647-1016-4d13-8b84-4d63818e1179-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/3c79f82f-f136-48aa-9e81-7e10fbb3de2a-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/3c79f82f-f136-48aa-9e81-7e10fbb3de2a-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/b998f840-91fc-41b6-b73d-70587babf760-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/b998f840-91fc-41b6-b73d-70587babf760-thumbnail.jpg" style="display: block;"></a>
-									</li>
-						</ul>
-						<ul class="tabContent" style="display: none;">
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/9f164e13-bcaa-48a6-9b35-0ca96629f614-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/9f164e13-bcaa-48a6-9b35-0ca96629f614-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/1a3ad7de-7ee9-4530-b89a-46375219beb5-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/1a3ad7de-7ee9-4530-b89a-46375219beb5-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/7acae4ac-5909-4142-8b20-19c5462859d6-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/7acae4ac-5909-4142-8b20-19c5462859d6-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/ea566af4-0cdb-4017-a8c7-27e407794204-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/ea566af4-0cdb-4017-a8c7-27e407794204-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/dea31d42-fa3e-4b69-a631-51ca7c79f032-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/dea31d42-fa3e-4b69-a631-51ca7c79f032-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/1c81f492-a3d7-4c06-8658-bc2c76808cd3-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/1c81f492-a3d7-4c06-8658-bc2c76808cd3-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/f1174ca6-6bdf-4d0b-86e6-5455bc8e89ad-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/f1174ca6-6bdf-4d0b-86e6-5455bc8e89ad-thumbnail.jpg" style="display: block;"></a>
-									</li>
-									<li>
-										<a  target="_blank"><img src="./Mango商城 - Powered By Mango Team_files/2971c96e-9f11-4491-9faf-9ea7e1fec53c-thumbnail.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/2971c96e-9f11-4491-9faf-9ea7e1fec53c-thumbnail.jpg" style="display: block;"></a>
-									</li>
+									<s:iterator value="hList" var="p">
+										<li>
+											<a  href="${pageContext.request.contextPath}/product_findByPid.action?pid=<s:property value="#p.pid"/>"><img src="${pageContext.request.contextPath}/<s:property value="#p.image"/>" style="display: block;" /></a>
+										</li>
+									</s:iterator>
 						</ul>
 			</div>
 		</div>
@@ -405,17 +301,19 @@ $(document).ready(function(){
 		<!--特价商品手风琴效果-->
 		 <div id="subject" class="home-subjects-v2">
     <ul>
+    <s:iterator value="bList" var="b">
         <li>
-            <a>
-               <img src="${pageContext.request.contextPath}/image/women/cloths01.jpg" width="157" height="200" />
+            <a href="${pageContext.request.contextPath}/product_findByPid.action?pid=<s:property value="#b.pid"/>">
+               <img src="${pageContext.request.contextPath}/<s:property value="#b.image"/>" width="157" height="200" />
                 <div class="info">
-                <h4 style="color:black">ins超火连衣裙</h4>
+                <h4 style="color:black"><s:property value="#b.pname"/></h4>
                 </div>
                 <s class="line"></s>
                 <i class="mask"></i>
             </a>
         </li>
-        <li class="big">
+     </s:iterator>
+       <%--  <li class="big">
             <a>
                <img src="${pageContext.request.contextPath}/image/women/cloths02.jpg" width="157" height="200" />
                 <div class="info">
@@ -453,7 +351,7 @@ $(document).ready(function(){
                 </div>
                 <i class="mask"></i>
             </a>
-        </li>
+        </li> --%>
     </ul>
     </div><!--手风琴效果结束-->
    </div>
