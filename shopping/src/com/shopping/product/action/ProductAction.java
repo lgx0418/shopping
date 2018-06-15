@@ -1,5 +1,6 @@
 package com.shopping.product.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.shopping.category.service.CategoryService;
@@ -35,6 +36,16 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
+	//接收二级分类csid
+	private Integer csid;
+	
+	public Integer getCsid() {
+		return csid;
+	}
+	public void setCsid(Integer csid) {
+		this.csid = csid;
+	}
+
 	//接收当前页数
 	private int page;
 	
@@ -58,10 +69,16 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	public String findByCid(){
 		//将数据封装到pageBean对象中
 		PageBean<Product> pageBean=productService.findByPageCid(cid,page);//带分页查询一级分类商品
+		//将pageBean存入值栈中
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
 		return "findByCid";
 	}
 	//根据二级分类id查询商品
 	public String findByCsid(){
+		//带分页的查询二级分类商品
+		PageBean<Product> pageBean=productService.findByCsid(csid,page);
+		//存入值栈中
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
 		return "findByCsid";
 	}
 }

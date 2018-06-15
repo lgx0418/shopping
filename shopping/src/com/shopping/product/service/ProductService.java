@@ -42,7 +42,7 @@ public class ProductService {
 		//封装当前页数
 		pageBean.setPage(page);
 		//封装每页显示的记录数
-		int limit=15;
+		int limit=12;
 		pageBean.setLimit(limit);
 		//封装总记录数,需从数据库中读取
 		int totalCount=productDao.findCountCid(cid);
@@ -53,13 +53,31 @@ public class ProductService {
 		pageBean.setTotalPage(num.intValue());
 		//封装每页显示的数据集合
 		int begin=(page-1)*limit;
-		List<Product> list=productDao.findByPageCid(cid,page,limit);
+		List<Product> list=productDao.findByPageCid(cid,begin,limit);
 		pageBean.setList(list);
 		//返回一个pageBean对象
 		return pageBean;
 	}
 
-	
-	
-	
+	//二级分类商品分页
+	public PageBean<Product> findByCsid(Integer csid, int page) {
+		PageBean<Product> pageBean=new PageBean<Product>();
+		//封装当前页数
+		pageBean.setPage(page);
+		//封装每页显示的记录数
+		int limit=12;
+		pageBean.setLimit(limit);
+		//封装总记录数
+		int totalCount=productDao.findCountCsid(csid);
+		pageBean.setTotalCount(totalCount);
+		//封装总页数
+		double tp=totalCount;
+		Double num=Math.ceil(tp/limit);
+		pageBean.setTotalPage(num.intValue());
+		//封装每页显示的数据集合
+		int begin=(page-1)*limit;
+		List<Product> list=productDao.findByPageCsid(csid,begin,limit);
+		pageBean.setList(list);
+		return pageBean;
+	}
 }

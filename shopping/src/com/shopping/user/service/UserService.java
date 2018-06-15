@@ -32,7 +32,12 @@ public class UserService {
 			user.setCode(code);
 			userDao.save(user);
 			//发送激活邮件
-			MailUtils.sendMail(user.getEmail(), code);
+			try {
+				MailUtils.sendEmail(user.getEmail(), code);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		//激活用户

@@ -120,7 +120,7 @@ $(document).ready(function(){
 					<!--取出一级分类  -->
 					<s:iterator var="c" value="#session.cList">
 						<li>
-							<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="#c.cid"/>"><s:property value="#c.cname"/></a>|
+							<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="#c.cid"/>&page=1"><s:property value="#c.cname"/></a>|
 						</li>
 					</s:iterator>
 		</ul>
@@ -133,7 +133,7 @@ $(document).ready(function(){
 		<div class="span18 last">
 			
 			<div class="productImage">
-					<a title="" style="outline-style: none; text-decoration: none;" id="zoom" href="product.htm" rel="gallery">
+					<a title="" style="outline-style: none; text-decoration: none;" id="zoom" href="#" rel="gallery">
 						<div class="zoomPad"><img style="opacity: 1;" title="" class="medium" src="${ pageContext.request.contextPath }/<s:property value="model.image"/>"><div style="display: block; top: 0px; left: 162px; width: 0px; height: 0px; position: absolute; border-width: 1px;" class="zoomPup"></div><div style="position: absolute; z-index: 5001; left: 312px; top: 0px; display: block;" class="zoomWindow"><div style="width: 368px;" class="zoomWrapper"><div style="width: 100%; position: absolute; display: none;" class="zoomWrapperTitle"></div><div style="width: 0%; height: 0px;" class="zoomWrapperImage">
 							<img src="${ pageContext.request.contextPath }/<s:property value="model.image"/>" 
 								style="position: absolute; 

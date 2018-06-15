@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.shopping.product.vo.Product;
+import com.shopping.utils.PageHibernateCallback;
 
 /*
  * 商品持久层
@@ -21,7 +22,7 @@ public class ProductDao extends HibernateDaoSupport{
 		//查询热门商品，条件是is_hot=1
 		criteria.add(Restrictions.eq("is_hot", 1));
 		//按照pid倒序输出
-		criteria.addOrder(Order.desc("pid"));
+		criteria.addOrder(Order.asc("pid"));
 		//执行查询
 		List<Product> list=(List<Product>) this.getHibernateTemplate().findByCriteria(criteria, 0, 10);
 		return list;
@@ -54,7 +55,36 @@ public class ProductDao extends HibernateDaoSupport{
 		return 0;
 	}
 	
-	public List<Product> findByPageCid(Integer cid, int page, int limit) {
+	//一级分类分页
+	public List<Product> findByPageCid(Integer cid, int begin, int limit) {
+		//多表查询
+		//select p. from category c,category cs,product p where c.cid =cs.cid and cs.csid=p.csid and c.cid=2
+		//String hql="select p from Product p join p.categorySecond cs join cs.category c where c.cid=?";
+		String hql="select p from Product p join p.categorySecond cs join cs.category c where c.cid = ?";
+		List<Product> list=this.getHibernateTemplate().execute(new PageHibernateCallback<Product>(hql, new Object[]{cid}, begin, limit));
+		if(list !=null && list.size()>0){
+			return list;
+		}
+		return null;
+	}
+
+	//二级分类总记录数
+	public int findCountCsid(Integer csid) {
+		String hql="select count(*) from Product p where p.categorySecond.csid = ?";
+		List<Long> list=(List<Long>) this.getHibernateTemplate().find(hql, csid);
+		if(list !=null && list.size()>0){
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	//二级分类分页
+	public List<Product> findByPageCsid(Integer csid, int begin, int limit) {
+		String hql="select p from Product p join p.categorySecond cs where cs.csid= ?";
+		List<Product> list=this.getHibernateTemplate().execute(new PageHibernateCallback<Product>(hql, new Object[]{csid}, begin, limit));
+		if(list !=null && list.size()>0){
+			return list;
+		}
 		return null;
 	}
 

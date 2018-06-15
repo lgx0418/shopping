@@ -190,7 +190,7 @@ $(document).ready(function(){
 	</div>
 
 	
-        <style>
+<style>
 *{outline:none;}
 .b2{margin: -10px 0 -10px 50px;position:relative;border:0px solid red; }
 .b2 .b2_s

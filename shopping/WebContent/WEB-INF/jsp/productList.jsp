@@ -116,7 +116,7 @@ $(document).ready(function(){
 					<!--取出一级分类  -->
 					<s:iterator var="c" value="#session.cList">
 						<li>
-							<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="#c.cid"/>"><s:property value="#c.cname"/></a>|
+							<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="#c.cid"/>&page=1"><s:property value="#c.cname"/></a>|
 						</li>
 					</s:iterator>
 		</ul>
@@ -156,274 +156,78 @@ $(document).ready(function(){
 					分类的商品：
 					</span>
 				</div>
-			<form id="productForm" action="./image/蔬菜 - Powered By Mango Team.htm" method="get">
-				<input type="hidden" id="brandId" name="brandId" value="">
-				<input type="hidden" id="promotionId" name="promotionId" value="">
-				<input type="hidden" id="orderType" name="orderType" value="">
-				<input type="hidden" id="pageNumber" name="pageNumber" value="1">
-				<input type="hidden" id="pageSize" name="pageSize" value="20">
+			<form id="productForm" action="#" method="get">
+				
 					
 				<div id="result" class="result table clearfix">
 					<br/>
 						<ul>
-						
-						<li>
-										<a href="./product.htm">
-											<img src="image/dress/dress1.jpg" width="170" height="170"  style="display: inline-block;">
-											   
-											<span style='color:green'>
-										连衣裙
-											</span>
-											 
-											<span class="price">
-												价格：99元
-											</span>
-											 
-										</a>
-									</li>
+							<s:iterator value="pageBean.list" var="p">
 									<li>
-										<a >
-											<img src="image/dress/dress2半身裙88.jpg" width="170" height="170" " style="display: inline-block;">
-											<span style='color:green'>
-											 商品：半身裙
+										<a href="${pageContext.request.contextPath}/product_findByPid.action?pid=<s:property value="#p.pid"/>">
+											<img src="${ pageContext.request.contextPath }/<s:property value="#p.image"/>" width="170" height="170"  style="display: inline-block;">
+											<span style='color:black'>
+												<s:property value="#p.pname"/>
 											</span>
 											<span class="price">
-												价格：88元
+												价格：<s:property value="#p.shop_price"/> 元
 											</span>
 											 
 										</a>
 									</li>
-									<li>
-										<a >
-											<img src="image/dress/dress3伞裙39.jpg" width="170" height="170" " style="display: inline-block;">
-											<span style='color:green'>
-											 商品：伞裙
-											</span>
-											<span class="price">
-												价格：39元
-											</span>
-											 
-										</a>
-									</li>
-									<li>
-											<a >
-											<img src="image/dress/dress5礼服288.jpg" width="170" height="170" " style="display: inline-block;">
-											<span style='color:green'>
-											 商品；白色礼服
-											</span>
-											<span class="price">
-												价格：288元
-											</span>
-											 
-										</a>
-									</li>
-									<li>
-											<a >
-											<img src="image/dress/dress红色礼服399.jpg" width="170" height="170" " style="display: inline-block;">
-											<span style='color:green'>
-											 商品：红色礼服
-											</span>
-											<span class="price">
-												价格：399元
-											</span>
-											 
-										</a>
-									</li>
-								
-									<li>
-										<a >
-											<img src="image/women/women (12).jpg" width="170" height="170" " style="display: inline-block;">
-											<span style='color:green'>
-											  短款外套
-											</span>
-											<span class="price">
-												价格：299元
-											</span>
-											 
-										</a>
-									</li>
-									
-									
-									<li>
-										<a >
-											<img src="image/women/women (13).jpg" width="170" height="170"   style="display: inline-block;">
-											<span style='color:green'>
-											毛绒外套
-											</span>
-											<span class="price">
-												价格：299元
-											</span>
-											 
-										</a>
-									</li>
-									<li>
-										<a >
-											<img src="image/women/women (15).png" width="170" height="170"   style="display: inline-block;">
-											<span style='color:green'>
-											  羊毛衫
-											</span>
-											<span class="price">
-												价格：99元
-											</span>
-											 
-										</a>
-									</li>
-									<li>
-										<a >
-											<img src="image/women/women (17).jpg" width="170" height="170"  style="display: inline-block;">
-											<span style='color:green'>
-											   性感T恤
-											</span>
-											<span class="price">
-												价格：129元
-											</span>
-											 
-										</a>
-								<li>
-										<a >
-											<img src="image/women/women (11).jpg" width="170" height="170" " style="display: inline-block;">
-											<span style='color:green'>
-											  短款外套
-											</span>
-											<span class="price">
-												价格：249元
-											</span>
-											 
-										</a>
-									</li>
-									<li>
-										<a >
-											<img src="image/women/women (2).jpg" width="170" height="170"   style="display: inline-block;">
-											<span style='color:green'>
-											毛呢外套
-											</span>
-											<span class="price">
-												价格：399元
-											</span>
-											 
-										</a>
-									</li>
-									<li>
-										<a >
-											<img src="image/women/women (14).jpg" width="170" height="170"   style="display: inline-block;">
-											<span style='color:green'>
-											皮衣
-											</span>
-											<span class="price">
-												价格：199元
-											</span>
-											 
-										</a>
-									</li>
-									<li>
-										<a >
-											<img src="image/women/women (5).png" width="170" height="170"  style="display: inline-block;">
-											<span style='color:green'>
-											粉色大衣
-											</span>
-											<span class="price">
-												价格：111元
-											</span>
-											 
-										</a>
-									</li>
-									<li>
-										<a >
-											<img src="image/men/men (7).png" width="170" height="170"  style="display: inline-block;">
-											<span style='color:green'>
-											男士外套
-											</span>
-											<span class="price">
-												价格：235元
-											</span>
-											 
-										</a>
-									</li>
-										<li>
-										<a >
-											<img src="image/men/men (8).png" width="170" height="170"  style="display: inline-block;">
-											<span style='color:green'>
-											男士毛呢外套
-											</span>
-											<span class="price">
-												价格：315元
-											</span>
-											 
-										</a>
-									</li>
-										<li>
-										<a >
-											<img src="image/men/men (20).png" width="170" height="170"  style="display: inline-block;">
-											<span style='color:green'>
-											男士西装
-											</span>
-											<span class="price">
-												价格：238元
-											</span>
-											 
-										</a>
-									</li>
-										<li>
-										<a >
-											<img src="image/men/men (7).png" width="170" height="170"  style="display: inline-block;">
-											<span style='color:green'>
-											卫衣外套
-											</span>
-											<span class="price">
-												价格：89元
-											</span>
-											 
-										</a>
-									</li>
-										<li>
-										<a >
-											<img src="image/men/men (8).png" width="170" height="170"  style="display: inline-block;">
-											<span style='color:green'>
-											棉袄
-											</span>
-											<span class="price">
-												价格：299元
-											</span>
-											 
-										</a>
-									</li>
-										<li>
-										<a >
-											<img src="image/men/men (20).png" width="170" height="170"  style="display: inline-block;">
-											<span style='color:green'>
-											男士线衫
-											</span>
-											<span class="price">
-												价格：99元
-											</span>
-											 
-										</a>
-									</li>
-										<li>
-										<a >
-											<img src="image/men/men (7).png" width="170" height="170"  style="display: inline-block;">
-											<span style='color:green'>
-											男士衬衫
-											</span>
-											<span class="price">
-												价格：88元
-											</span>
-											 
-										</a>
-									</li>
-									
-								
+							</s:iterator>
 						</ul>
 				</div>
-	<div class="pagination">
-			<span class="firstPage">&nbsp;</span>
-			<span class="previousPage">&nbsp;</span>
-				<span class="currentPage">1</span>
-				<a href="javascript: $.pageSkip(2);">2</a>
-			<a class="nextPage" href="javascript: $.pageSkip(2);">&nbsp;</a>
-			
-			<a class="lastPage" href="javascript: $.pageSkip(2);">&nbsp;</a>
-	</div>
+				<div class="pagination">
+					<span>第<s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页</span>
+					<!--一级分类的分页  -->
+					<s:if test="cid != null">
+						<s:if test="pageBean.page != 1">
+							<!--首页  -->
+							<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=1" class="firstPage">&nbsp;</a>
+							<!--上一页  -->
+							<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
+						</s:if>		
+						<s:iterator var="i" begin="1" end="pageBean.totalPage">
+							<s:if test="pageBean.page != #i">
+								<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
+							</s:if>
+							<s:else>
+								<span class="currentPage"><s:property value="#i"/></span>
+							</s:else>
+						</s:iterator>
+						<s:if test="pageBean.page != pageBean.totalPage">
+							<!-- 下一页 -->
+							<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
+							<!-- 最后一页 -->
+							<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
+						</s:if>	
+					</s:if>
+					
+					<!--二级分类的分页  -->
+					<s:if test="csid != null">
+						<s:if test="pageBean.page != 1">
+							<!--首页  -->
+							<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=1" class="firstPage">&nbsp;</a>
+							<!--上一页  -->
+							<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
+						</s:if>
+						<s:iterator var="i" begin="1" end="pageBean.totalPage">
+							<s:if test="pageBean.page != #i">
+								<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
+							</s:if>
+							<s:else>
+								<span class="currentPage"><s:property value="#i"/></span>
+							</s:else>
+						</s:iterator>
+						<s:if test="pageBean.page != totalPage">
+							<!-- 下一页 -->
+							<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
+							<!-- 最后一页 -->
+							<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
+						</s:if>
+					</s:if>
+				</div>
 			</form>
 		</div>
 	</div>
