@@ -50,7 +50,7 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<div class="container register" 
+<div class="container register"> 
 	<p style="background-image: url(image/r___________renleipic_01/2.png); 
 		background-repeat:no-repeat;">请填写您的注册信息</p>
 		<div class="span24">

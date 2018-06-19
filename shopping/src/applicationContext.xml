@@ -45,7 +45,14 @@
 		</props>
 	</property>
 	<!--配置hibernate映射文件	-->
-	
+	<property name="mappingResources">
+			<list>
+				<value>com/shopping/adminuser/vo/AdminUser.hbm.xml</value>
+				<value>com/shopping/category/vo/Category.hbm.xml</value>
+				<value>com/shopping/categorysecond/vo/CategorySecond.hbm.xml</value>
+				<value>com/shopping/product/vo/Product.hbm.xml</value>
+			</list>
+	</property>
 </bean>
 
 <!-- 事务管理: -->
@@ -64,6 +71,57 @@
 </bean>
 <!--注册界面跳转的Action-->
 <bean id="registerAction" class="com.shopping.user.action.registerAction" scope="prototype">
-	
 </bean>
+<!-- 配置后台登录的Action -->
+<bean id="adminUserAction" class="com.shopping.adminuser.action.AdminUserAction" scope="prototype">
+		<property name="adminUserService" ref="adminUserService"/>
+</bean>
+<!-- 配置后台一级分类管理的Action -->
+<bean id="adminCategoryAction" class="com.shopping.category.adminaction.AdminCategoryAction" scope="prototype">
+	<property name="categoryService" ref="categoryService"/>
+</bean>
+<!-- 配置验证码Action -->
+<bean id="checkImgAction" class="com.shopping.user.action.CheckImgAction" scope="prototype">
+</bean>
+<!-- 配置后台二级分类管理的Action -->
+	<bean id="adminCategorySecondAction" class="com.shopping.categorysecond.adminaction.AdminCategorySecondAction" scope="prototype">
+		<property name="categorySecondService" ref="categorySecondService"/>
+		<property name="categoryService" ref="categoryService"/>
+	</bean>
+	<!-- 后台商品管理的Action -->
+	<bean id="adminProductAction" class="com.shopping.product.adminaction.AdminProductAction" scope="prototype">
+		<property name="productService" ref="productService"/>
+	</bean>
+<!-- Service的配置  ===========================-->
+<!-- 管理员Service -->
+<bean id="adminUserService" class="com.shopping.adminuser.service.AdminUserService">
+		<property name="adminUserDao" ref="adminUserDao"/>
+</bean>
+<!-- 一级分类Service -->
+<bean id="categoryService" class="com.shopping.category.service.CategoryService">
+		<property name="categoryDao" ref="categoryDao"/>
+	</bean>
+	<!-- 二级分类Service -->
+	<bean id="categorySecondService" class="com.shopping.categorysecond.service.CategorySecondService">
+		<property name="categorySecondDao" ref="categorySecondDao"/>
+	</bean>
+	<!-- 后台商品Service -->
+	<bean id="productService" class="com.shopping.product.service.ProductService">
+		<property name="productDao" ref="productDao"/>
+	</bean>
+<!-- Dao的配置  ===========================-->
+<bean id="adminUserDao" class="com.shopping.adminuser.dao.AdminUserDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+<bean id="categoryDao" class="com.shopping.category.dao.CategoryDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	<!--  二级分类Dao-->
+		<bean id="categorySecondDao" class="com.shopping.categorysecond.dao.CategorySecondDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- 后台商品DAO -->
+	<bean id="productDao" class="com.shopping.product.dao.ProductDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
 </beans>

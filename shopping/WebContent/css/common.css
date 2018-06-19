@@ -31,9 +31,9 @@ body {
 	_height: 100%;
 	font: 12px tahoma, Arial, Verdana, sans-serif;
 	color: #666666;
-	background-color: #ffffff;
-	_background-image: url(about: blank);
-	_background-attachment: fixed;
+	
+	background: url(../images/background3.jpg) top center no-repeat; 
+    background-size:cover;
 }
 
 a {
@@ -134,8 +134,8 @@ textarea {
 /* ---------- Grid ---------- */
 
 div.container {
-	width: 950px;
-	margin: 0px auto;
+	width: 1000px;
+	margin: 35px auto;
 	*zoom: 1;
 }
 
@@ -176,7 +176,8 @@ div.container .span5 {
 }
 
 div.container .span6 {
-	width: 230px;
+width: 200px;
+background-color: white;
 }
 
 div.container .span7 {
@@ -226,7 +227,9 @@ div.container .span17 {
 div.container .span18 {
 	width: 710px;
 }
-
+div.container .span180 {
+	width: 1050x;
+}
 div.container .span19 {
 	width: 750px;
 }
@@ -824,27 +827,29 @@ div.header .phone strong {
 }
 
 div.header .mainNav {
-	height: 36px;
+	height: 40px;
 	overflow: hidden;
-	background-color: #1d1d1d;
+	background-color: #FF7500CC;
+	border-radius: 20px;
 }
 
 div.header .mainNav li {
 	height: 36px;
 	line-height: 36px;
 	float: left;
-	color: #747474;
+	color: black;
 }
 
 div.header .mainNav li:hover {
 	color: #505050;
-	background-color: #505050;
+	background-color: #f2750ce6;
 }
 
 div.header .mainNav li a {
-	margin: 0px 20px;
-	color: #e7e7e7;
-	font-size: 14px;
+	margin: 30px 40px;
+    color: #000000b3;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 div.header .mainNav a.current {
