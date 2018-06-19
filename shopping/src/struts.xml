@@ -22,16 +22,34 @@
 			<result name="loginSuc" type="redirectAction">index</result>
 			<result name="goBack" type="redirectAction">index</result>
 			<result name="checkcodeMsg">/WEB-INF/jsp/user_register.jsp</result>
+			<result name="info">/WEB-INF/jsp/user_information.jsp</result>
+			<result name="editInfo">/WEB-INF/jsp/user_information.jsp</result>
 		</action>
 		<!-- 验证码的Action -->  
         <action name="checkImg" class="checkImgAction">
-        	
         </action> 
+       
         <!--商品模块的action  -->
         <action name="product_*" class="productAction" method="{1}">
         	<result name="findByPid">/WEB-INF/jsp/product.jsp</result>
         	<result name="findByCid">/WEB-INF/jsp/productList.jsp</result>
         	<result name="findByCsid">/WEB-INF/jsp/productList.jsp</result>
         </action> 
+        <!--购物车模块的action  -->
+        <action name="cart_*" class="cartAction" method="{1}">
+        	<result name="addCart">/WEB-INF/jsp/cart.jsp</result>
+        	<result name="showCart">/WEB-INF/jsp/cart.jsp</result>
+        	<result name="clearCart">/WEB-INF/jsp/cart.jsp</result>
+        	<result name="deleteCart">/WEB-INF/jsp/cart.jsp</result>
+        </action>
+        <!-- 商户登录注册的action -->
+        <action name="selleruser_*" class="sellerUserAction" method="{1}">
+        	<result name="sellerregist">/seller/sellerregister.jsp</result>
+        	<result name="checkcodeError">/seller/sellerregister.jsp</result>
+        	<result name="loginPage">/seller/seller_login.jsp</result>
+        	<result name="login">/seller/seller_login.jsp</result>
+			<result name="loginSuc">/seller/shops/shop.jsp</result>
+			<result name="goBack">/seller/seller_login.jsp</result>
+        </action>
 	</package>
 </struts>

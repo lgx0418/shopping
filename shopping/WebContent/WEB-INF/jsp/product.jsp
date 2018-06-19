@@ -12,8 +12,12 @@
 <script type="text/javascript" src="${ pageContext.request.contextPath }/js/myfocus-2.0.1.min.js"></script>
 <script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery-1.7.2.min.js"></script>
 <script>
+	//按钮提交
 	function saveCart(){
 		document.getElementById("cartForm").submit();
+	}
+	function cartLogin(){
+		document.getElementById("cartForm").action="${ pageContext.request.contextPath }/user_loginPage.action";
 	}
 </script>
 <style type="text/css">
@@ -156,15 +160,15 @@ $(document).ready(function(){
 				<dl>
 					<dt>商城价:</dt>
 					<dd>
-						<strong>￥：<s:property value="model.market_price"/>元</strong>
+						<strong>￥：<s:property value="model.shop_price"/>元</strong>
 							参 考 价：
-							<del>￥<s:property value="model.shop_price"/>元</del>
+							<del>￥<s:property value="model.market_price"/>元</del>
 					</dd>
 				</dl>
 					<dl>
 						<dt>促销</dt>
 						<dd>
-								<a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)">限时抢购</a>
+								<a target="_blank" title="">限时抢购</a>
 						</dd>
 					</dl>
 					<dl>
@@ -174,8 +178,8 @@ $(document).ready(function(){
 						</dd>
 					</dl>
 			</div>
-			<form id="cartForm" action="" method="post" >
-				<input type="hidden" name="pid" value=""/>
+			<form id="cartForm" action="${ pageContext.request.contextPath }/cart_addCart.action" method="post" >
+				<input type="hidden" name="pid" value="<s:property value="model.pid"/>"/>
 				<div class="action">
 						<dl class="quantity">
 							<dt>购买数量:</dt>
@@ -188,7 +192,12 @@ $(document).ready(function(){
 						</dl>
 						
 					<div class="buy">
+						<s:if test="#session.existUser == null">
+							<input id="addCart" class="cartLogin" value="亲，您还没有登录呢!" type="submit" onclick="cartLogin()"/>
+						</s:if>
+						<s:else>
 							<input id="addCart" class="addCart" value="加入购物车" type="button" onclick="saveCart()"/>
+						</s:else>
 					</div>
 				</div>
 			</form>

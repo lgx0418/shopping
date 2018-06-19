@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="com.shopping.sellerUser.vo.SellerUser" table="selleruser">
+		<id name="suid">
+			<generator class="native"/>
+		</id>
+		<property name="susername"/>
+		<property name="spass"/>
+		<property name="sname"/>
+		<property name="semail"/>
+		<property name="ssex"/>
+		
+		<property name="sphone"/>
+		<property name="sshopName"/>
+		<property name="saddr"/>
+		<property name="sstate"/>
+		<property name="scode"/>
+		
+		
+	</class>
+</hibernate-mapping>

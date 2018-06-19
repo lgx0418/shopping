@@ -49,7 +49,7 @@
 					<div class="title">
 						<strong>查看与修改个人信息</strong>personal information
 					</div>
-					<form id="registerForm"  method="post" novalidate="novalidate">
+					<form id="registerForm"  method="post" novalidate="novalidate" action="${ pageContext.request.contextPath }/cart_editInfo.action">
 						<table >
 							<tbody >
 							<tr >
@@ -57,31 +57,34 @@
 									<span class="requiredField">*</span>用户名:
 								</th>
 								<td>
-									<input type="text" value="小明" id="username" name="username" class="text" maxlength="20">
+									<input type="text" readonly="true" value="<s:property value="#session.existUser.username"/>" id="username" name="username" class="text" maxlength="20">
+								</td>
+								<td style="color: red;">
+											不可改变
 								</td>
 							</tr>
 							<tr>
 									<th><span class="requiredField">*</span>密&nbsp;&nbsp;码:</th>
-									<td><input value="*****" id="password" name="password"
+									<td><input value="<s:property value="#session.existUser.password"/>" id="password" name="password"
 										class="text" maxlength="20" autocomplete="off">
 										<span id="span2"></span>
 									</td>
 							</tr>
 							<tr>
 									<th><span class="requiredField">*</span>确认密码:</th>
-									<td><input value="*****" type="password" id="repassword" class="text"
+									<td><input value="<s:property value="#session.existUser.password"/>" type="password" id="repassword" class="text"
 										maxlength="20" autocomplete="off">
 										<span id="span3"></span>
 									</td>
 							</tr>
 							<tr >
 										<th>
-											真实姓名:
+											<span class="requiredField">*</span>真实姓名:
 										</th>
 										<td style="width:229px;">
-												<input type="text" readonly="true" value="黎明" name="name" class="text" maxlength="100">
+												<input type="text" readonly="true" value="<s:property value="#session.existUser.name"/>" name="name" class="text" maxlength="100">
 										</td>
-										<td >
+										<td style="color: red;">
 											不可改变
 										</td>
 							</tr>
@@ -90,47 +93,49 @@
 									<span class="requiredField">*</span>E-mail:
 								</th>
 								<td>
-									<input type="text" value="760832151@qq.com" id="email" name="email" class="text" maxlength="200">
+									<input type="text" value="<s:property value="#session.existUser.email"/>" id="email" name="email" class="text" maxlength="200">
 								</td>
 							</tr>
 									
 									<tr>
 										<th>
-											性别:
+											<span class="requiredField">*</span>性别:
 										</th>
 										<td>
 												<span class="fieldSet">
+													<s:if test="#session.existUser.sex.value='男'">
 														<label>
-															<input checked type="radio" name="sex"  value="male">男
+															<input checked="true" type="radio" name="sex"  value="男">男
 														</label>
 														<label>
-															<input type="radio" name="sex" value="female">女
+															<input type="radio" name="sex" value="女">女
 														</label>
+													</s:if>
+													<s:else>
+														<label>
+															<input type="radio" name="sex"  value="男">男
+														</label>
+														<label>
+															<input checked="true" type="radio" name="sex" value="女">女
+														</label>
+													</s:else>
 												</span>
 										</td>
 										<tr>
 											<th><span class="requiredField">*</span>电话:</th>
-											<td><input type="text" value="1827999690" id="telephone" name="phone"
+											<td><input type="text" value="<s:property value="#session.existUser.phone"/>" id="telephone" name="phone"
 												class="text">
 												<span id="span6"></span>
 											</td>
 										</tr>
 									</tr>
-									<!-- <tr>
-										<th>
-											出生日期:
-										</th>
-										<td>
-												<input type="text" value="1996-04-18" name="memberAttribute_3" class="text" onfocus="WdatePicker();">
-										</td>
-									</tr> -->
 									
 									<tr>
 										<th>
-											地址:
+											<span class="requiredField">*</span>地址:
 										</th>
 										<td>
-												<input type="text" value="广东广州" name="addr" class="text" maxlength="200">
+												<input type="text" value="<s:property value="#session.existUser.addr"/>" name="addr" class="text" maxlength="200">
 										</td>
 									</tr>
 								
@@ -139,7 +144,7 @@
 									
 								</th>
 								<td>
-									<input type="submit" class="submit" value="确认保存">
+									<input type="submit" class="submit" onclick="return confirm('确定修改吗？');" value="确认保存">
 								</td>
 							</tr>
 							<tr>

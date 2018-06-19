@@ -28,7 +28,7 @@
 					<s:property value="#session.existUser.name"/>
 				|</li>
 				<li class="cart">
-					<a href="./购物车.htm">购物车</a>
+					<a href="${ pageContext.request.contextPath }/cart_showCart.action">购物车</a>
 					|
 				</li>
 				<li id="headerLogin" class="headerLogin" style="display: list-item;">
@@ -40,7 +40,7 @@
 				</s:else>
 				<li id="headerUsername" class="headerUsername"></li>
 						<li>
-							<a href="seller/seller_login.html"><img src="${pageContext.request.contextPath}/images/shop.jpg"/>&nbsp;商家入口</a>
+							<a href="${pageContext.request.contextPath}/selleruser_sellerregist.action"><img src="${pageContext.request.contextPath}/images/shop.jpg"/>&nbsp;商家入口</a>
 							|
 						</li>
 			</ul>

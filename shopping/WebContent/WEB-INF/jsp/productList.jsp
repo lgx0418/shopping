@@ -146,13 +146,9 @@ $(document).ready(function(){
 					<span style='color:#D3520C;margin:20px 30px;font-size:18px;'>
 					
 					以下是<%-- <s:iterator value="#session.cList" var="c">
-							<s:if test="#c.categorySeconds.csid==0">
-								<s:property value="#c.cname"/>
-						  	</s:if>
-						  	<s:if test="#c.categorySeconds.csid!=0">
-						  		<s:property value="#c.cname"/>&gt;<s:property value="#c.categorySeconds.csname"/>
-						  	</s:if>
-						 </s:iterator>  --%>
+							<s:if test="">
+							</s:if>
+						</s:iterator> --%>
 					分类的商品：
 					</span>
 				</div>

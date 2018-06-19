@@ -13,7 +13,7 @@
 	<meta http-equiv="description" content="This is my page">
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
 	
-	<link rel="stylesheet" href="../css/regist.css" />
+	<link rel="stylesheet" href="${ pageContext.request.contextPath }/css/regist.css" />
   </head>
   <style>
   	a{
@@ -43,7 +43,7 @@
     </span>
   </div>
   <div class="divCenter">
-    <form action="" method="post" onsubmit="return checkForm();">
+    <form action="${ pageContext.request.contextPath }/selleruser_login.action" method="post" onsubmit="return checkForm();">
     <div align="center" style="height:30px;"><font style="color:#ff0000;font-size:16px;"></font></div>
     <input type="hidden" name="method" value=""/>
     <table>

@@ -1176,7 +1176,21 @@ div.productContent .buy .addCart {
 	border: none;
 	background: url(../images/product.gif) 0px -600px no-repeat;
 }
-
+div.productContent .buy .cartLogin {
+	width: 205px;
+	height: 36px;
+	line-height: 36px;
+	float: left;
+	padding-left: 3px;
+	/* color: #ffffff; */
+	font-size: 15px;
+	font-weight: bold;
+	font-family: "Microsoft YaHei";
+	cursor: pointer;
+	border: none;
+	background-color: orange;
+	/* background: url(../images/product.gif) 0px -600px no-repeat; */
+}
 div.productContent .buy a {
 	float: right;
 	color: #666666;

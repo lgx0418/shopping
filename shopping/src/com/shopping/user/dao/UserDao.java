@@ -50,4 +50,9 @@ public class UserDao extends HibernateDaoSupport{
 			}
 			return null;
 		}
+
+		//编辑用户
+		public void editInfo(User user) {
+			this.getHibernateTemplate().update(user);
+		}
 }

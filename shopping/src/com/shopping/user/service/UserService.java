@@ -54,4 +54,11 @@ public class UserService {
 		public User login(User user) {
 			return userDao.login(user);
 		}
+
+		//修改用户
+		public void editInfo(User user) {
+			userDao.editInfo(user);
+		}
+
+		
 }

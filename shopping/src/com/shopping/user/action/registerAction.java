@@ -30,7 +30,7 @@ public class registerAction extends ActionSupport implements ModelDriven<User>{
 		private String checkcode;
 		public void setCheckcode(String checkcode) {  
 	        this.checkcode = checkcode;  
-	    }  
+	    } 
 	//跳转到注册界面的方法
 	public String register(){
 		return "register";
@@ -114,14 +114,18 @@ public class registerAction extends ActionSupport implements ModelDriven<User>{
 	
 	//用户退出的方法
 	public String goBack(){
-		//销魂保存在会话中的信息
+		//销毁保存在会话中的信息
 		ServletActionContext.getRequest().getSession().invalidate();
 		return "goBack";
 	}
-	
-	/*//修改用户信息
+	//会员中心跳转
 	public String info(){
-		User existUser=userService.editInfo(user);
-		return "userInfo";
-	}*/
+		return "info";
+	}
+	//修改用户信息
+	public String editInfo(){
+		user.setState(1);;
+		userService.editInfo(user);
+		return "editInfo";
+	}
 }

@@ -22,7 +22,7 @@ a:HOVER {
 <table width="750px" border="0" cellspacing="0" style="margin: auto;border: 1px solid #CCC;box-shadow: inset 0 0 10px #CCC">
   <tr>
     <td style="padding:30px; text-align:center">
-    <table width="60%" border="0" cellspacing="0" style="margin: auto">
+    <table width="65%" border="0" cellspacing="0" style="margin: auto">
       <tr>
         <td style="width:98px"><img src="${pageContext.request.contextPath}/images/msg.png" width="128" height="128" /></td>
         <td style="padding-top:30px">
@@ -32,8 +32,10 @@ a:HOVER {
         </font>
         <br />
           <a href="${ pageContext.request.contextPath }/index.action">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href="${ pageContext.request.contextPath }/user_register.action">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href="${ pageContext.request.contextPath }/user_loginPage.action">登录</a>
+          <a href="${ pageContext.request.contextPath }/user_register.action">买手注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="${ pageContext.request.contextPath }/user_loginPage.action">买手登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="${ pageContext.request.contextPath }/selleruser_registPage.action">商户注册</a>
+          <a href="${ pageContext.request.contextPath }/selleruser_loginPage.action">商户登录</a>
          </td>
       </tr>
     </table>

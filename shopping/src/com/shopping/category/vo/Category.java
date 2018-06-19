@@ -1,5 +1,6 @@
 package com.shopping.category.vo;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,7 +9,7 @@ import com.shopping.categorysecond.vo.CategorySecond;
 /*
  * 一级分类
  */
-public class Category {
+public class Category implements Serializable{
 	private Integer cid;
 	private String cname;
 	//二级分类的集合

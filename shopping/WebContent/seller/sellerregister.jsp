@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -8,6 +9,7 @@
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
+	
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
@@ -38,19 +40,19 @@
   <div class="divTitle">
     <span class="spanTitle">商户注册</span>
     <span style="float: right;font-weight: 900;line-height: 32px;">
-    	<a href="seller_login.html">&nbsp;&nbsp;商户登录入口</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    	<a href="${ pageContext.request.contextPath }/selleruser_loginPage.action">&nbsp;&nbsp;商户登录入口</a>&nbsp;&nbsp;&nbsp;&nbsp;
     	<a href="${ pageContext.request.contextPath }/user_loginPage.action">¥&nbsp;&nbsp;买手入口</a>&nbsp;&nbsp;&nbsp;&nbsp;
     </span>
   </div>
   <div class="divCenter">
-    <form action="" method="post" onsubmit="return checkForm();">
+    <form action="${ pageContext.request.contextPath }/selleruser_registPage.action" method="post" onsubmit="return checkForm();">
     <div align="center" style="height:30px;"><font style="color:#ff0000;font-size:16px;"></font></div>
     <input type="hidden" name="method" value=""/>
     <table>
       <tr>
         <td class="tdLabel">用户名：</td>
         <td class="tdInput">
-          <input type="text" name="susername" id="susername" class="input" value="" placeholder="请输入用户名"/>
+          <input type="text" name="susername" id="susername" class="input" value="" placeholder="请输入用户名" onblur="checkSellerUserName()"/>
         </td>
         <td>
           <span id="span1"></span>
@@ -95,8 +97,8 @@
       <tr>
         <td class="tdLabel">性别：</td>
         <td class="tdInput">
-         	<label> <input type="radio" name="ssex" value="male" checked="true">男</label>
-			<label> <input type="radio" name="ssex" value="female">女
+         	<label> <input type="radio" name="ssex" value="男" checked="true">男</label>
+			<label> <input type="radio" name="ssex" value="女">女
         </td>
         
       </tr>
@@ -112,7 +114,7 @@
       <tr>
         <td class="tdLabel">商铺名：</td>
         <td class="tdInput">
-          <input type="text" name="sshopName" id="sshopName" class="input" value="" placeholder="请输入商铺名"/>
+          <input type="text" name="sshopName" id="sshopName" class="input" value="" placeholder="请输入商铺名" onblur="checksshopName()"/>
         </td>
         <td>
           <span id="span7"></span>
@@ -133,8 +135,11 @@
 			    <input type="text" id="checkcode" name="checkcode" class="input" placeholder="请输入验证码" maxlength="4" autocomplete="off">
 			 </td>
 			 <td>
-			    <img id="checkImg" class="captchaImage" src="" onclick="change()" title="换一张">
+			    <img src="${pageContext.request.contextPath}/checkImg.action?" id="checkImg" class="captchaImage" src="" onclick="change()" title="换一张">
 			</td>
+			<td>
+	          <span style="color:red;"> <s:actionerror/></span>
+	        </td>
 		</tr>
       
 		<tr>
@@ -151,12 +156,71 @@
 </div>
   </body>
   <script>
+//切换验证码  
+  function change(){  
+      var img1=document.getElementById("checkImg");  
+      img1.src="${pageContext.request.contextPath}/checkImg.action?"+new Date().getTime(); //加时间戳防止缓存  
+  }  
+  //ajax异步校验用户名是否存在
+  function checkSellerUserName(){
+	  var SellerUserName=document.getElementById("susername").value;
+	  if(SellerUserName.trim().length != 0){
+	  var xhr=createXmlHttp();
+	  xhr.onreadystatechange=function(){
+		  if(xhr.readyState == 4 && xhr.status == 200){
+			  document.getElementById("span1").innerHTML = xhr.responseText;
+		  }
+	  }
+	  xhr.open("GET","${pageContext.request.contextPath}/selleruser_findBySellername.action?time="+new Date().getTime()+"&susername"+susername,true);
+	  xhr.send(null);
+  }else{
+	  document.getElementById("span1").innerHTML="<font color='red'>用户名不能为空！</font>";
+	  return false;
+  }
+}
+ 
+  //异步校验商铺名
+  function checksshopName(){
+	  var sshopName=document.getElementById("sshopName").value;
+	  if(sshopName.trim().length != 0){
+	  var xhr=createXmlHttp();
+	  xhr.onreadystatechange=function(){
+		  if(xhr.readyState == 4 && xhr.status == 200){
+			  document.getElementById("span7").innerHTML = xhr.responseText;
+		  }
+	  }
+	  xhr.open("GET","${pageContext.request.contextPath}/selleruser_findBySshopName.action?time="+new Date().getTime()+"&sshopName"+sshopName,true);
+	  xhr.send(null);
+  }else{
+	  document.getElementById("span7").innerHTML="<font color='red'>商铺名不能为空！</font>";
+	  return false;
+  }
+}
+function createXmlHttp(){
+	var xmlHttp;
+	 try{ // Firefox, Opera 8.0+, Safari
+	        xmlHttp=new XMLHttpRequest();
+	    }
+	    catch (e){
+		   try{// Internet Explorer
+		         xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+		      }
+		    catch (e){
+		      try{
+		         xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		      }
+		      catch (e){}
+		      }
+	    }
+
+		return xmlHttp;
+}
   	function checkForm(){
-  		var loginname=document.getElementById("susername").value;
+  		/* var loginname=document.getElementById("susername").value;
   		if(loginname == null || loginname == ''){
   			document.getElementById("span1").innerHTML="<font color='red'>用户名不能为空！</font>";
   			return false;
-  		}
+  		} */
   		var loginpass=document.getElementById("spass").value;
   		if(loginpass == null || loginpass == ''){
   			document.getElementById("span2").innerHTML="<font color='red'>密码不能为空！</font>";

@@ -25,7 +25,7 @@ myFocus.set({
     height:350,
     txtHeight:'default'
 });
-//弹出广告
+/* //弹出广告
 	var time;
 	function init(){
 		//设置显示图片的定时操作
@@ -56,7 +56,7 @@ myFocus.set({
 //关闭广告
 function closeAdv(){
 	document.getElementById("adv").style.display="none";
-}
+} */
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.7.2.min.js"></script>
 
@@ -179,11 +179,11 @@ $(document).ready(function(){
 
 </div>	
 <!--定时弹出广告-->
-<div id="adv">
+<!-- <div id="adv">
 	<div id="closeAdv" style="float: right;"> 
 		<input type="button" value="关闭广告" onclick="closeAdv()" />
 	</div>
-</div>
+</div> -->
 <div class="container research">
 	<div style="position: absolute; margin-top: -17px;margin-left: 70px;">
 		<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/22.gif" />
@@ -263,11 +263,11 @@ $(document).ready(function(){
 					    <div id="boxID"><!--焦点图盒子-->
 					      <div class="pic"><!--内容列表-->
 					        <ul>
-					          <li><a href="#"><img src="${pageContext.request.contextPath}/image/5a.jpg" alt="全球吃货日" width="100%" height="100%"/></a></li>
-					          <li><a href="#"><img src="${pageContext.request.contextPath}/image/2a.jpg" alt="特卖会大美人专场" width="100%" height="100%"/></a></li>
-					          <li><a href="#"><img src="${pageContext.request.contextPath}/image/1a.jpg" alt="我有个大胆的想法" width="100%" height="100%"/></a></li>
-					          <li><a href="#"><img src="${pageContext.request.contextPath}/image/3a.jpg" alt="家具建材会场" width="100%" height="100%"/></a></li>
-					          <li><a href="#"><img src="${pageContext.request.contextPath}/image/4a.jpg" alt="夏末秋至，初恋西柚妆" width="100%" height="100%"/></a></li>
+					          <li><a href="${pageContext.request.contextPath}/product_findByCid.action?cid=1&page=1"><img src="${pageContext.request.contextPath}/image/1a.jpg" alt="拉夏贝尔潮流女装" width="100%" height="100%"/></a></li>
+					          <li><a href="${pageContext.request.contextPath}/product_findByCid.action?cid=2&page=1"><img src="${pageContext.request.contextPath}/image/2a.jpg" alt="简佰格2018新款" width="100%" height="100%"/></a></li>
+					          <li><a href="${pageContext.request.contextPath}/product_findByCid.action?cid=3&page=1"><img src="${pageContext.request.contextPath}/image/3a.jpg" alt="尽享运动特权" width="100%" height="100%"/></a></li>
+					          <li><a href="${pageContext.request.contextPath}/product_findByCid.action?cid=4&page=1"><img src="${pageContext.request.contextPath}/image/4a.jpg" alt="周大福怦然心动" width="100%" height="100%"/></a></li>
+					          <li><a href="${pageContext.request.contextPath}/product_findByCid.action?cid=5&page=1"><img src="${pageContext.request.contextPath}/image/5a.jpg" alt="开心放“价”" width="100%" height="100%"/></a></li>
 					        </ul>
 					      </div>
 					    </div>
@@ -313,45 +313,7 @@ $(document).ready(function(){
             </a>
         </li>
      </s:iterator>
-       <%--  <li class="big">
-            <a>
-               <img src="${pageContext.request.contextPath}/image/women/cloths02.jpg" width="157" height="200" />
-                <div class="info">
-                <h4 style="color:black">Bershka 男士 2018春夏新款</h4>
-                </div>
-                <s class="line"></s>    
-                <i class="mask"></i>
-            </a>
-        </li>
-        <li>
-            <a>
-                <img src="${pageContext.request.contextPath}/image/women/shoe01.jpg" width="157" height="200" />
-                <div class="info">
-               <h4 style="color:black">2018夏季凉鞋时尚</h4>
-                </div>
-                <s class="line"></s>   
-                 <i class="mask"></i>
-            </a>
-        </li>
-        <li>
-            <a>
-                <img src="${pageContext.request.contextPath}/image/women/lsk01.jpg" width="157" height="200" />
-                <div class="info">
-               <h4 style="color:black">纪梵希小羊皮口红保湿</h4>
-                </div>
-                <s class="line"></s>
-                <i class="mask"></i>
-            </a>
-        </li>
-        <li>
-            <a>
-                <img src="${pageContext.request.contextPath}/image/women/lsk02.jpg" width="157" height="200" />
-                <div class="info">
-                <h4 style="color:black">纪梵希香水</h4>
-                </div>
-                <i class="mask"></i>
-            </a>
-        </li> --%>
+      
     </ul>
     </div><!--手风琴效果结束-->
    </div>

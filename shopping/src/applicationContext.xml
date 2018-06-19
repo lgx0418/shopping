@@ -51,6 +51,7 @@
 			<value>com/shopping/category/vo/Category.hbm.xml</value>
 			<value>com/shopping/product/vo/Product.hbm.xml</value>
 			<value>com/shopping/categorysecond/vo/CategorySecond.hbm.xml</value>
+			<value>com/shopping/sellerUser/vo/SellerUser.hbm.xml</value>
 		</list>
 	</property>
 </bean>
@@ -77,13 +78,21 @@
 		<property name="userService" ref="userService"/>
 		
 	</bean>
-	<!--验证码的ACTION -->
+	<!--用户验证码的ACTION -->
 	<bean id="checkImgAction" class="com.shopping.user.action.CheckImgAction" scope="prototype">
 	</bean>
 	
 	<!--商品的action  -->
 	<bean id="productAction" class="com.shopping.product.action.ProductAction" scope="prototype">
 		<property name="productService" ref="productService"/>
+	</bean>
+	<!--商户模块的action  -->
+	<bean id="sellerUserAction" class="com.shopping.sellerUser.action.SellerUserAction" scope="prototype">
+		<property name="sellerUserService" ref="sellerUserService"/>
+	</bean>
+	<!--购物车的action  -->
+	<bean id="cartAction" class="com.shopping.cart.action.CartAction" scope="prototype">
+		<property name="productService" ref="productService"></property>
 	</bean>
 <!-- Service的配置  =============================================-->
 	<bean id="userService" class="com.shopping.user.service.UserService">
@@ -95,6 +104,9 @@
 	<bean id="productService" class="com.shopping.product.service.ProductService">
 		<property name="productDao" ref="productDao"/>
 	</bean>
+	<bean id="sellerUserService" class="com.shopping.sellerUser.service.SellerUserService">
+		<property name="sellerUserDao" ref="sellerUserDao"/>
+	</bean>
 <!-- Dao的配置  =============================================-->
 	<bean id="userDao" class="com.shopping.user.dao.UserDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
@@ -103,6 +115,9 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	<bean id="productDao" class="com.shopping.product.dao.ProductDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="sellerUserDao" class="com.shopping.sellerUser.dao.SellerUserDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 </beans>

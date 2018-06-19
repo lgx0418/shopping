@@ -14,11 +14,11 @@
 function checkForm(){
 	// 校验用户名:
 	// 获得用户名文本框的值:
-	var username = document.getElementById("username").value;
+	/* var username = document.getElementById("username").value;
 	if(username == null || username == ''){
 		document.getElementById("span1").innerHTML="<font color='red'>用户名不能为空！</font>";
 		return false;
-	}
+	} */
 	// 校验密码:
 	// 获得密码框的值:
 	var password = document.getElementById("password").value;
@@ -64,6 +64,7 @@ function checkForm(){
 	function checkUsername() {
 	   //获取用户名输入框的值
 	   var username=document.getElementById("username").value;
+	   if(username.trim().length != 0){
 	   //创建异步交互对象
 		var xhr=createXmlHttp();
 	   //设置监听
@@ -75,7 +76,11 @@ function checkForm(){
 	   //time="+new Date().getTime()+"解决时间缓冲问题
 	   xhr.open("GET","${pageContext.request.contextPath}/user_findByName.action?time="+new Date().getTime()+"&username="+username,true);
 	   xhr.send(null);
-	}
+	}else{
+		   document.getElementById("span1").innerHTML="<font color='red'>用户名不能为空</font>";
+		   return false;
+	   }
+   }
 	function createXmlHttp(){
 		var xmlHttp;
 		 try{ // Firefox, Opera 8.0+, Safari

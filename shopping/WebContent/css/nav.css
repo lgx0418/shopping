@@ -28,8 +28,12 @@
 	color: red;
 	text-decoration: none;
 }
-.catList a:hover, .catList a:active {
-	color:#F00;
+.catList a:hover{
+	color:green;
+	text-decoration: none;
+}
+.catList a:active {
+	color:green;
 	text-decoration: none;
 }
 
